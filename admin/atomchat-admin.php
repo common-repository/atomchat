@@ -60,7 +60,7 @@ switch (get_option("show_name_in_chat")) {
 						<b>Note: </b>If you are already logged in to AtomChat client area, You will be redirected to AtomChat Admin Panel
 					</p>
 					<p style="margin-top: 20px;">
-						<button type="button" class="button-primary" onclick="cometGOPanel('<?php echo $atomchatAdminPanelurl; ?>');">
+						<button type="button" class="button-primary" onclick="cometGOPanel('<?php echo esc_js($atomchatAdminPanelurl); ?>');">
 							Launch Client Area
 						</button>
 					</p>
@@ -90,13 +90,13 @@ switch (get_option("show_name_in_chat")) {
 						<td>
 							<p class="atomchat-go-para">Display user's name in chat as </p>
 
-							<input type="radio" id="name1" class="show_name_in_chat" name="chat_username" value="username" <?php echo $show_username?>>
+							<input type="radio" id="name1" class="show_name_in_chat" name="chat_username" value="username" <?php echo esc_attr($show_username); ?>>
 							<label for="name1">Username</label><br><br>
-							<input type="radio" id="name2" class="show_name_in_chat" name="chat_username" value="nickname" <?php echo $show_nickname?>>
+							<input type="radio" id="name2" class="show_name_in_chat" name="chat_username" value="nickname" <?php echo esc_attr($show_nickname); ?>>
 							<label for="name2">Nickname</label><br><br>
-							<input type="radio" id="name3" class="show_name_in_chat" name="chat_username" value="fname_lname" <?php echo $show_fname_lname?>>
+							<input type="radio" id="name3" class="show_name_in_chat" name="chat_username" value="fname_lname" <?php echo esc_attr($show_fname_lname); ?>>
 							<label for="name3">First name + Last name</label><br><br>
-							<input type="radio" id="name4" class="show_name_in_chat" name="chat_username" value="display_name" <?php echo $show_displayname?>>
+							<input type="radio" id="name4" class="show_name_in_chat" name="chat_username" value="display_name" <?php echo esc_attr($show_displayname); ?>>
 							<label for="name4">Display name</label><br><br>
 
 							<p><b>Note: </b>If selected name is not set for any user then Username will be displayed as the name of the user in chat</p>
@@ -169,7 +169,7 @@ switch (get_option("show_name_in_chat")) {
 								<b>Note:</b> You can find your Auth Key in AtomChat Admin Panel -> API Keys (top-right button)
 							</p>
 							<p style="margin-top: 20px;">
-								<input type="text" class="atomchat_auth_key" name="atomchat_auth_key" id="auth_key_token" value="<?php echo get_option('atomchat_auth_key');?>" style="width: 25%;" placeholder="Enter Auth Key">
+								<input type="text" class="atomchat_auth_key" name="atomchat_auth_key" id="auth_key_token" value="<?php echo esc_attr(get_option('atomchat_auth_key'));?>" style="width: 25%;" placeholder="Enter Auth Key">
 							</p>
 
 							<h2>
@@ -179,7 +179,7 @@ switch (get_option("show_name_in_chat")) {
 								<b>Note:</b> You can find your API Key in AtomChat Admin Panel -> API Keys (top-right button)
 							</p>
 							<p style="margin-top: 20px;">
-								<input type="text" class="atomchat_api_key" name="atomchat_api_key" id="api_key" value="<?php echo get_option('atomchat_api_key');?>" style="width: 25%;" placeholder="Enter API Key">
+								<input type="text" class="atomchat_api_key" name="atomchat_api_key" id="api_key" value="<?php echo esc_attr(get_option('atomchat_api_key'));?>" style="width: 25%;" placeholder="Enter API Key">
 							</p>
 
 						</div>
@@ -199,7 +199,7 @@ switch (get_option("show_name_in_chat")) {
 						<?php if(get_option('atomchat_enable_mycred') === 'true') {  $style = "display:block;";  }else{ $style = "display:none;"; }
 						?>
 
-						<div id="atomchat_roles" style=<?php echo $style; ?>>
+						<div id="atomchat_roles" style=<?php echo esc_attr($style); ?>>
 							<?php
 							$roles = $wp_roles->get_names();
 							foreach($roles as $value) {
@@ -213,23 +213,23 @@ switch (get_option("show_name_in_chat")) {
 								$creditToDeductVideoOnMinutes = empty((int) $role_data['creditToDeductVideoOnMinutes']) ? 0 : $role_data['creditToDeductVideoOnMinutes'];
 								?>
 								<hr>
-								<div class="atomchat_role" id=<?php echo $value; ?>>
-									<h2><?php echo $value; ?></h2>
+								<div class="atomchat_role" id=<?php echo esc_attr($value); ?>>
+									<h2><?php echo esc_html($value); ?></h2>
 								</div>
-								<div style="display: none;" id=<?php echo "atomchat_content_".$value ?>>
+								<div style="display: none;" id=<?php echo esc_attr("atomchat_content_".$value) ?>>
 									<table cellspacing="1" style="margin-top:20px;">
 										<tr style="margin-top:0;">
 											<td width="200" style="padding-top: 20px;">
 												<p>Text Chat (on messages)  Charge</p>
 											</td>
 											<td width="150" style="padding-top: 20px;">
-												<input type="text" class="creditToDeduct" name="creditToDeduct" value="<?php echo $creditToDeduct; ?>" style="width: 93%;" id=<?php echo "creditToDeduct_".$role; ?>>
+												<input type="text" class="creditToDeduct" name="creditToDeduct" value="<?php echo esc_attr($creditToDeduct); ?>" style="width: 93%;" id=<?php echo esc_attr("creditToDeduct_".$role); ?>>
 											</td>
 											<td width="90" style="padding-top: 20px;">
 												<p>credits for</p>
 											</td>
 											<td width="150" style="padding-top: 20px;">
-												<input type="text" class="creditOnMessage" name="creditOnMessage" value="<?php echo $creditOnMessage;?>" style="width: 93%;" id=<?php echo "creditOnMessage_".$role; ?>>
+												<input type="text" class="creditOnMessage" name="creditOnMessage" value="<?php echo esc_attr($creditOnMessage);?>" style="width: 93%;" id=<?php echo esc_attr("creditOnMessage_".$role); ?>>
 												<td width="90" style="padding-top: 20px;">
 													<p>Messages</p>
 												</td>
@@ -240,13 +240,13 @@ switch (get_option("show_name_in_chat")) {
 												<p>Audio Chat  Charge</p>
 											</td>
 											<td width="150" style="padding-top: 20px;">
-												<input type="text" class="creditToDeductAudio" name="creditToDeductAudio" value="<?php echo $creditToDeductAudio;?>" style="width: 93%;" id=<?php echo "creditToDeductAudio_".$role; ?>>
+												<input type="text" class="creditToDeductAudio" name="creditToDeductAudio" value="<?php echo esc_attr($creditToDeductAudio);?>" style="width: 93%;" id=<?php echo esc_attr("creditToDeductAudio_".$role); ?>>
 											</td>
 											<td width="90" style="padding-top: 20px;">
 												<p>credits every</p>
 											</td>
 											<td width="150" style="padding-top: 20px;">
-												<input type="text" class="creditToDeductAudioOnMinutes" name="creditToDeductAudioOnMinutes" value="<?php echo $creditToDeductAudioOnMinutes; ?>" style="width: 93%;"width="90" style="padding-top: 20px;" id=<?php echo "creditToDeductAudioOnMinutes_".$role; ?>>
+												<input type="text" class="creditToDeductAudioOnMinutes" name="creditToDeductAudioOnMinutes" value="<?php echo esc_attr($creditToDeductAudioOnMinutes); ?>" style="width: 93%;"width="90" style="padding-top: 20px;" id=<?php echo esc_attr("creditToDeductAudioOnMinutes_".$role); ?>>
 											</td>
 											<td width="90" style="padding-top: 20px;">
 												<p>Minutes</p>
@@ -257,13 +257,13 @@ switch (get_option("show_name_in_chat")) {
 												<p>Audio/Video Chat  Charge</p>
 											</td>
 											<td width="150" style="padding-top: 20px;">
-												<input type="text" class="creditToDeductVideo" name="creditToDeductVideo"  value="<?php echo $creditToDeductVideo; ?>" style="width: 93%;" id=<?php echo "creditToDeductVideo_".$role; ?>>
+												<input type="text" class="creditToDeductVideo" name="creditToDeductVideo"  value="<?php echo esc_attr($creditToDeductVideo); ?>" style="width: 93%;" id=<?php echo esc_attr("creditToDeductVideo_".$role); ?>>
 											</td>
 											<td width="90" style="padding-top: 20px;">
 												<p>credits every</p>
 											</td>
 											<td width="150" style="padding-top: 20px;">
-												<input type="text" class="creditToDeductVideoOnMinutes" name="creditToDeductVideoOnMinutes" value="<?php echo  $creditToDeductVideoOnMinutes; ?>" style="width: 93%;" id=<?php echo "creditToDeductVideoOnMinutes_".$role; ?>>
+												<input type="text" class="creditToDeductVideoOnMinutes" name="creditToDeductVideoOnMinutes" value="<?php echo  esc_attr($creditToDeductVideoOnMinutes); ?>" style="width: 93%;" id=<?php echo esc_attr("creditToDeductVideoOnMinutes_".$role); ?>>
 											</td>
 											<td width="90" style="padding-top: 20px;">
 												<p>Minutes</p>
@@ -271,8 +271,8 @@ switch (get_option("show_name_in_chat")) {
 										</tr>
 										<tr>
 											<td width="90" style="padding-top: 20px;">
-												<div type="submit" value="submit" class="button-primary" name="edit_credit" id=<?php echo "atomchat_edit_credits_".$value; ?>>Update Credits					</div>
-												<div id=<?php echo "atomchat_update_credeits_role_".$role; ?>></div>
+												<div type="submit" value="submit" class="button-primary" name="edit_credit" id=<?php echo esc_attr("atomchat_edit_credits_".$value); ?>>Update Credits					</div>
+												<div id=<?php echo esc_attr("atomchat_update_credeits_role_".$role); ?>></div>
 												</td>
 											</tr>
 										</table>

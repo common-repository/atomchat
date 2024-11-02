@@ -88,7 +88,7 @@ class AtomChatInstaller {
 			$response['message'] = $e->getMessage();
     	}
 		header('Content-Type: application/json');
-		echo json_encode($response);
+		echo wp_json_encode($response);
 		wp_die();
 	}
 }
@@ -119,7 +119,7 @@ if( !function_exists( 'atomchat_friend_ajax' ) ) {
 		);
 		}
 		header('Content-Type: application/json');
-		echo json_encode(array('success' => 'settings updated successfully'));
+		echo wp_json_encode(array('success' => 'settings updated successfully'));
 		wp_die();
 	}
 }
@@ -143,7 +143,7 @@ if( !function_exists( 'atomchat_mycred_setting' ) ) {
 		}
 
 		header('Content-Type: application/json');
-		echo json_encode(array('success' => 'settings updated successfully'));
+		echo wp_json_encode(array('success' => 'settings updated successfully'));
 		wp_die();
 
 	}
@@ -165,7 +165,7 @@ if( !function_exists( 'atomchat_update_credeits' ) ) {
 
 		update_option('atomchat_'.$role , serialize($data));
 		header('Content-Type: application/json');
-		echo json_encode(array('success' => 'settings updated successfully'));
+		echo wp_json_encode(array('success' => 'settings updated successfully'));
 		wp_die();
 
 	}
@@ -179,7 +179,7 @@ if( !function_exists( 'atomchat_update_auth_ajax' ) ) {
 		update_option( 'atomchat_auth_key' , $atomchat_auth_key);
 		update_option( 'atomchat_api_key' , $atomchat_api_key);
 		header('Content-Type: application/json');
-		echo json_encode(array('success' => 'auth key updated successfully'));
+		echo wp_json_encode(array('success' => 'auth key updated successfully'));
 		wp_die();
 	}
 }
@@ -192,7 +192,7 @@ if( !function_exists( 'atomchat_update_layout_ajax' ) ) {
 		update_option( 'show_docked_layout_on_all_pages' , $show_docked_layout_on_all_pages);
 		update_option( 'show_name_in_chat' , $show_name_in_chat);
 		header('Content-Type: application/json');
-		echo json_encode(array('success' => 'layout settings updated successfully'));
+		echo wp_json_encode(array('success' => 'layout settings updated successfully'));
 		wp_die();
 	}
 }

@@ -204,7 +204,7 @@ if( !function_exists( 'atomChatUserDetails' ) ) {
 				$api_key = get_option('atomchat_api_key');
 				$user_info['signature'] = md5(implode(',', array($user_id,$user_name,$api_key)));
 			}
-			$atomchat_base = json_encode($user_info);
+			$atomchat_base = wp_json_encode($user_info);
 		}
 	}
 }

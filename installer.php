@@ -42,7 +42,7 @@ $atomchat_logo = esc_url(plugin_dir_url(__FILE__).'images/atomchat_final_logo.sv
 							<!--End Skip for now-->
 
 							<!--AtomChat new code-->
-							<img src="<?php echo $atomchat_logo; ?>" class="atomchat_logo_image">
+							<img src="<?php echo esc_url($atomchat_logo); ?>" class="atomchat_logo_image">
 							<h2 class="ins-heading">Step 1: License Key</h2>
 							<p>To activate the plugin, please enter your AtomChat License Key from your <a href="https://app.atomchat.com" target="_blank">dashboard </a></p>
 							<hr style="margin-bottom: 20px;">

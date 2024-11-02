@@ -14,7 +14,7 @@ if( !function_exists( 'atomchatGetCredits' ) ) {
 					$balance = "Invalid UID";
 				}
 				$credits = array("credits" => strval($balance));
-				echo json_encode($credits);
+				echo wp_json_encode($credits);
 				exit();
 			}
 		}
@@ -78,7 +78,7 @@ if( !function_exists( 'atomchatDeductPoints' ) ) {
 		if(property_exists($data, 'name') && $data->name == "broadcast"){
 			$creditsinfo["creditsinfo"] = array("success" => false, "errorcode" => "2","message" => "The Credit Deduction is not enabled for the broadcast plugin for the  role");
 			$creditsinfo["balance"] = atomchatGetCredits($userid);
-			echo json_encode($creditsinfo);
+			echo wp_json_encode($creditsinfo);
 			exit();
 		}
 
@@ -154,7 +154,7 @@ if( !function_exists( 'atomchatDeductPoints' ) ) {
 			$result['errorcode'] = 3;
 			$result['balance'] = $credits;
 		}
-		echo json_encode($result);
+		echo wp_json_encode($result);
 		exit();
 	}
 }
@@ -173,7 +173,7 @@ if( !function_exists( 'atomchatGetCreditsToDeduct' ) ) {
 				$response['audiochat'] = array('name' => 'Audio Chat', 'credit' => array('creditsToDeduct' => 0 , 'deductionInterval'=> 0));
 				$response['avchat'] = array('name' => 'Audio/Video Chat', 'credit' => array('creditsToDeduct' => 0 , 'deductionInterval'=> 0));
 			}
-			echo json_encode($response);
+			echo wp_json_encode($response);
 			exit();
 		}
 		if(property_exists($data, 'role')){
@@ -198,7 +198,7 @@ if( !function_exists( 'atomchatGetCreditsToDeduct' ) ) {
 
 		if(property_exists($data, 'name') && $data->name == "broadcast"){
 			$creditsinfo["creditsinfo"] = array("creditsToDeduct" => 0,"deductionInterval" => 0);
-			echo json_encode($creditsinfo);
+			echo wp_json_encode($creditsinfo);
 			exit();
 		}
 
@@ -224,7 +224,7 @@ if( !function_exists( 'atomchatGetCreditsToDeduct' ) ) {
 			}else{
 				$result["creditsinfo"] = array("creditsToDeduct" => 0,"deductionInterval" => 0,"creditsToDeductOnMessage" => 0,"messageCount" => 0);
 			}
-			echo json_encode($result);
+			echo wp_json_encode($result);
 			exit();
 		}
 
@@ -238,7 +238,7 @@ if( !function_exists( 'atomchatGetCreditsToDeduct' ) ) {
 			}
 		}
 
-		echo json_encode($creditsinfo);
+		echo wp_json_encode($creditsinfo);
 		exit();
 	}
 }

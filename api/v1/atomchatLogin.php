@@ -29,7 +29,7 @@ if( !function_exists( 'atomchatLogin' ) ) {
 			break;
 		}
 		if(!empty($response['error'])) {
-			echo json_encode($response);
+			echo wp_json_encode($response);
 			exit;
 		}
 		$user_id = $user->data->ID;
@@ -88,7 +88,7 @@ if( !function_exists( 'atomchatLogin' ) ) {
 			'basedata' => rawurlencode(
 				base64_encode(
 					rawurlencode(
-						json_encode($user_info)
+						wp_json_encode($user_info)
 					)
 				)
 			)
@@ -97,7 +97,7 @@ if( !function_exists( 'atomchatLogin' ) ) {
 			'basedata' => $response['success']['basedata']
 		]);
 		if(!empty($result) && !empty($result->userid)) {
-			echo json_encode($response);
+			echo wp_json_encode($response);
 		}
 		exit;
 	}

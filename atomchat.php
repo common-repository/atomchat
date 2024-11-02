@@ -3,9 +3,11 @@
 /**
 * Plugin Name: AtomChat
 * Description: Voice, video & text chat for your WordPress site
-* Version: 1.1.5
+* Version: 1.1.6
 * Author: AtomChat
 * Author URI: https://www.atomchat.com/
+* License: GPLv2 or later
+* License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
 

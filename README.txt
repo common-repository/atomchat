@@ -3,8 +3,8 @@ Contributors: AtomChat
 Tags: wordpress chat, buddypress chat, chatroom, group chat, user-to-user chat, video chat, audio chat, stickers, emojis, real time translation, embedded chat, screenshare, video conference
 Requires at least: 4.7
 Requires PHP: 5.6
-Tested up to: 6.4
-Stable tag: 1.1.5
+Tested up to: 6.6
+Stable tag: 1.1.6
 License: GNU General Public License v2.0 or later
 
 AtomChat helps you add group chat (or chatrooms), user to user chat, voice & video calling to your WordPress site.
@@ -185,3 +185,6 @@ Privacy policy: https://www.atomchat.com/privacy-policy
 
 = 1.1.5 = 
 * Auth token verification for mycred plugin
+
+= 1.1.6 = 
+* Miscellaneous bug fixes
